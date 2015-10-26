@@ -45,6 +45,3 @@ $ node server.js
 This command will run our node server. Our app should now be live at `localhost:9000`. Enter that URL in your browser and you'll see the home page!
 
 If you check the terminal you started the server in, you can see the logged requests that the server has received.
-
-
->>>>>>> f174f7b481c6047c62293f17f0c5133b8603443a
