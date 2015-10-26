@@ -14,3 +14,9 @@ brew install node
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+### For Windows Users
+TODO
+
+
+### Starting the App
+TODO
