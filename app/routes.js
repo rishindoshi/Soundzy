@@ -3,11 +3,10 @@ var request = require('request');
 
 module.exports = function(app){
 	app.get('/', function(req, res){
-		res.render('index');
+		res.render('home', {message: 'SOUNDZAY'});
 	});
 
 	app.get('/artist', function(req, res){
-		console.log("IN /ARTIST ROUTE")
 		var search_artist_name = req.query.artist_name;
 		var popular_tracks = [];
 
@@ -33,10 +32,13 @@ module.exports = function(app){
 			     	tracks.forEach(function(track){
 			     		popular_tracks.push(track.name);
 			     	});
-					console.log(popular_tracks);
+					res.render('tracks', {name: 'Tracks', tracks: popular_tracks});
 				});
 
 			});
+
+		} else {
+			console.log("no artist name given");
 		}
 
 		
