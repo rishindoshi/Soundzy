@@ -7,7 +7,8 @@
 	<h2> {{name}} </h2>
 
 	{{#each tracks}}
-		<p> {{this}} </p>
+		<p> {{this.name}} </p>
+		<a href="{{this.preview}}" style="margin-bottom: 15px;"> Play! </a>
 	{{/each}}
 
 </body>

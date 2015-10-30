@@ -30,7 +30,7 @@ module.exports = function(app){
 					var tracks = JSON.parse(body).tracks;
 			     	var popular_tracks = [];
 			     	tracks.forEach(function(track){
-			     		popular_tracks.push(track.name);
+			     		popular_tracks.push({name: track.name, preview: track.preview_url});
 			     	});
 					res.render('tracks', {name: 'Tracks', tracks: popular_tracks});
 				});
