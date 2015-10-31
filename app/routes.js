@@ -1,6 +1,7 @@
 var https = require('https');
 var request = require('request');
 
+
 module.exports = function(app){
 	app.get('/', function(req, res){
 		res.render('home', {message: 'SOUNDZAY'});
@@ -36,7 +37,7 @@ module.exports = function(app){
 			     			imageURL: track.album.images[0].url
 			     		});
 			     	});
-					res.render('tracks', {name: 'Tracks', tracks: popular_tracks});
+					res.render('tracks', {name: search_artist_name, tracks: popular_tracks});
 				});
 
 			});
