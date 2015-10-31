@@ -8,9 +8,12 @@
 	</div>
 	<div class="media-body">
 		<h4 class="media-heading">{{name}}</h4>
-		<a href="{{preview}}">
-			<span class="glyphicon glyphicon-play-circle"></span>
-		</a>
+		<audio controls>
+			<source src="{{preview}}" type="audio/ogg">
+			<source src="horse.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+
 	</div>
 </div>
 {{/each}}
