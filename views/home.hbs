@@ -1,6 +1,15 @@
 <h3> {{ message }} </h3>
 <form method="get" action="/artist" id="search-form">
-	<label> Input an Artist's Name! </label>
-	<input name="artist_name" placeholder="Artist" id="artist"/>
-	<button type="submit"> Submit </button>
+	<div class="jumbotron">
+		<h1>Soundzy!</h1>
+		<p>Music right to your face</p>
+		<div class="input-group">
+			<input name="artist_name" type="text" class="form-control" placeholder="Search for Artist...">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="submit">Go!</button>
+			</span>
+		</div>
+	</div>
 </form>
+
+

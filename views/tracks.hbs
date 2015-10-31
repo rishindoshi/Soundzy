@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h2> {{name}} </h2>
-
-	{{#each tracks}}
-		<p> {{this.name}} </p>
-		<a href="{{this.preview}}" style="margin-bottom: 15px;"> Play! </a>
-	{{/each}}
-
-</body>
-</html>
+<h2> {{name}} </h2>
+{{#each tracks}}
+<p> {{name}} </p>
+<a href="{{preview}}"> Play! </a>
+<img src="{{imageURL}}">
+{{/each}}
