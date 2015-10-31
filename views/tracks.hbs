@@ -1,6 +1,16 @@
 <h2> {{name}} </h2>
 {{#each tracks}}
-<p> {{name}} </p>
-<a href="{{preview}}"> Play! </a>
-<img src="{{imageURL}}">
+<div class="media">
+	<div class="media-left">
+		<a href="#">
+			<img class="media-object" src="{{imageURL}}">
+		</a>
+	</div>
+	<div class="media-body">
+		<h4 class="media-heading">{{name}}</h4>
+		<a href="{{preview}}">
+			<span class="glyphicon glyphicon-play-circle"></span>
+		</a>
+	</div>
+</div>
 {{/each}}
