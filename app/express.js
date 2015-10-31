@@ -9,8 +9,11 @@ module.exports = function(){
 	app.use(bodyParser.json());
 
 	// app.set('views', './views');
-	app.engine('handlebars', handles({ defaultLayout: 'base'}));
-	app.set('view engine', 'handlebars');
+	app.engine('.hbs', handles({
+		defaultLayout: 'base',
+		extname: '.hbs'
+	}));
+	app.set('view engine', '.hbs');
 
 	require('./routes.js')(app);
 	app.use(express.static('./public'));
