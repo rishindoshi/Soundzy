@@ -10,9 +10,6 @@ module.exports = function(app){
 		//Here we're getting the artist name that the user submitted. We get it from parsing the url
 		var search_artist_name = req.query.artist_name;
 
-		//We will later populate this array
-		var popular_tracks = [];
-
 		//These two objects hava data that we will send to Spotify in our request
 		//Spotify uses this request data to determine what data they want to send back to us
 		var artist_req_options = {
@@ -26,7 +23,6 @@ module.exports = function(app){
 			qs: {country: 'US'},
 			method: 'GET'
 		};
-
 
 		request(artist_req_options, function(error, response, body){
 			//Spotify gives us back the data in a format javascript can't understand.

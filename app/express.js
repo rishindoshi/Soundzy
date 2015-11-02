@@ -8,7 +8,7 @@ module.exports = function(){
 	app.use(bodyParser.urlencoded({extended: true}));
 	app.use(bodyParser.json());
 
-	// app.set('views', './views');
+	//This allows us to use handlebars
 	app.engine('.hbs', handles({
 		defaultLayout: 'base',
 		extname: '.hbs'
