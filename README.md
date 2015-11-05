@@ -18,9 +18,19 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 We're going to analyze and discuss each element of our app to understand how it all works together.
 
+
 #### Web Server
 
-This is the backbone of the app. The server is in charge of "Serving" requests for users. These requests can come in many forms from images and text to full html web pages.
+This is the backbone of the app and is unsurprisingly written in the file server.js. What's the job of a server? A server's job is to always be listening for "requests". Once the server receives a request, its job is to then send a "response" that includes the data that was requested. Your web browsers(Chrome, Firefox, etc.) are usually the ones making these requests. Take for example typing in "www.espn.com" into your browser. When you do this, your browser will send a request to an ESPN server. The ESPN server will then process this request and send back the webpage that you requested in its response. Pretty straightforward, no? If not, these concepts will hopefully become more clear as we write our server together.
+
+```javascript
+var obj = {
+	name: 'Rishin'
+};
+console.log(obj);
+```
+
+
 
 Our server is run with Node.js
 
