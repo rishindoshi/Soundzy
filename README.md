@@ -25,15 +25,41 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 We're going to analyze and discuss each element of our app to understand how it all works together. Then we'll start building on top of it together.
 
 
-#### Web Server
+#### Da Server
 
 This is the backbone of the app and is unsurprisingly written in the file server.js. What's the job of a server? A server's job is to always be listening for "requests". Once the server receives a request, its job is to then send a "response" that includes the data that was requested. Your web browsers (Chrome, Firefox, etc.) are usually the ones making these requests.
 
 Take for example typing in "www.espn.com" into your browser. When you do this, your browser will send a request to an ESPN server. The ESPN server will then process this request and send back the webpage that you requested in its response. Pretty straightforward, no? If not, these concepts will hopefully become more clear as we write our server together.
 
 ```javascript
-var obj = {
-	name: 'Rishin'
-};
-console.log(obj);
+var express = require('express')();
+
+app.listen(8888);
+console.log("Server magic happens on port 8888");
 ```
+
+Here we essentially #include a library called Express. Express is a library that takes away all the nasty details of writing an actual server. It contains convenient functions for us such as the app.listen(portnum) function. This function starts the server and makes it listen for requests on port 8888 of the machine. Here we tell Express to start a server for us and to listen for requests on port 8888. Console.log is the javascript version of cout. 
+
+```javascript
+app.get('/', function(req, res){
+	res.render('home');
+});
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
