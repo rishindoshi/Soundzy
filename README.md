@@ -46,6 +46,7 @@ app.get('/', function(req, res){
 });
 ```
 
+Now here comes the meat of the app. We're setting a function here that will be called when a request comes into our server. The ```app.get()``` 
 
 
 
