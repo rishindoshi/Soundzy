@@ -32,7 +32,7 @@ This is the backbone of the app and is unsurprisingly written in the file server
 Take for example typing in "www.espn.com" into your browser. When you do this, your browser will send a request to an ESPN server. The ESPN server will then process this request and send back the webpage that you requested in its response. Pretty straightforward, no? If not, these concepts will hopefully become more clear as we write our server together.
 
 ```javascript
-var express = require('express')();
+var app = require('express')();
 
 app.listen(8888);
 console.log("Server magic happens on port 8888");
@@ -44,9 +44,11 @@ Here we essentially #include a library called Express. Express is a library that
 app.get('/', function(req, res){
 	res.render('home');
 });
+
+app.get('/')
 ```
 
-Now here comes the meat of the app. We're setting a function here that will be called when a request comes into our server. Let's say our websites name is www.soundzy.com. When a user visits this url, their browser is going to send a GET request to our server asking for what's called the index (home) page of our website. ```app.get()``` is a nice little function that Express gives us. In the above case, we're saying whenever a user visits www.soundzy.com, we respond by sending back the home.html page.
+Now here comes the meat of the app. We're setting a function here that will be called when a request comes into our server. Let's say our websites name is www.soundzy.com. When a user visits this url, their browser is going to send a GET request to our server asking for what's called the index (home) page of our website. ```app.get()``` is a nice little function that Express gives us. In the above case, we're saying whenever a user visits www.soundzy.com, we respond by sending back the HTML for our home page.
 
 
 
