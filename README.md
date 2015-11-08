@@ -46,7 +46,7 @@ app.get('/', function(req, res){
 });
 ```
 
-Now here comes the meat of the app. We're setting a function here that will be called when a request comes into our server. The ```app.get()``` 
+Now here comes the meat of the app. We're setting a function here that will be called when a request comes into our server. Let's say our websites name is www.soundzy.com. When a user visits this url, their browser is going to send a GET request to our server asking for what's called the index (home) page of our website. ```app.get()``` is a nice little function that Express gives us. In the above case, we're saying whenever a user visits www.soundzy.com, we respond by sending back the home.html page.
 
 
 
