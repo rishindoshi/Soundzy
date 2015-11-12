@@ -22,30 +22,27 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 ## Onto the App
 
-#### Da Server
+#### The Beginner Node Server
 
-This is the backbone of the app and is unsurprisingly written in the file server.js. What's the job of a server? A server's job is to always be listening for "requests". Once the server receives a request, its job is to then send a "response" that includes the data that was requested. Your web browsers (Chrome, Firefox, etc.) are usually the ones making these requests.
-
-Take for example typing in "www.espn.com" into your browser. When you do this, your browser will send a request to an ESPN server. The ESPN server will then process this request and send back the webpage that you requested in its response. Pretty straightforward, no? If not, these concepts will hopefully become more clear as we write our server together.
+So what's the job of a server? A server is essentially just a program running on a computer that is constantly "listening" for requests. When you type in "www.spotify.com" into your browser, your browser will submit a "request" to a Spotify server. This server receives the request, processes it, and sends a "response" back to your browser that contains the data for the home webpage of Spotify (HTML). This request/response system is the core of the Web. Let's dive into the code now.
 
 ```javascript
+//we are using a library for node called express.
+//you can think of 'require' as the '#include' for node.js
 var app = require('express')();
 
 app.listen(8888);
-console.log("Server magic happens on port 8888");
+console.log("Server magic happens at localhost:8888");
 ```
 
-Here we essentially #include a library called Express. Express is a library that takes away all the nasty details of writing an actual server. It contains convenient functions for us such as the app.listen(portnum) function. This function starts the server and makes it listen for requests on port 8888 of the machine. Here we tell Express to start a server for us and to listen for requests on port 8888. Console.log is the javascript version of cout. 
+ What we've done with these three lines of code is simply have the server start listening for requests. Type in ```$ node beginner_server.js``` into your command line to start the server and then navigate to localhost:8888 in your browser to see what's happening. So as you can see, the page just says "Cannot GET". 
 
-```javascript
-app.get('/', function(req, res){
-	res.render('home');
-});
 
-app.get('/')
-```
 
-Now here comes the meat of the app. We're setting a function here that will be called when a request comes into our server. Let's say our websites name is www.soundzy.com. When a user visits this url, their browser is going to send a GET request to our server asking for what's called the index (home) page of our website. ```app.get()``` is a nice little function that Express gives us. In the above case, we're saying whenever a user visits www.soundzy.com, we respond by sending back the HTML for our home page.
+
+
+
+
 
 
 
