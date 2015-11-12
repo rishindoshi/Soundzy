@@ -51,6 +51,7 @@ console.log("Server magic happens at localhost:8888");
 ```
 
 We're using the `app.get()` function that Express provides for us. It takes in two paramters:
+
 1. The path that specifies which webpage we want. `/` means home page
 2. A function (functions are variables in JS unlike C++) that is going to be run when a request is submitted to the above path
 
