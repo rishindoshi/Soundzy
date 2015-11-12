@@ -44,7 +44,7 @@ var app = require('express')();
 
 app.get('/', function(req, res){
 	console.log('REQUEST RECEIVED');
-	res.send('WHADDUP Y'ALL');
+	res.send('WHADDUP YALL');
 });
 
 app.listen(8888);
