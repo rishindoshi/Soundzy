@@ -1,4 +1,4 @@
-node_modules/*
-bower.json
-.bowerrc
-.bin
+node_modules
+tutorial/node_modules
+final-app/node_modules
+.DS_Store
