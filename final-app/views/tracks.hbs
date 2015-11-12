@@ -1,0 +1,19 @@
+<h2> {{name}} </h2>
+{{#each tracks}}
+<div class="media">
+	<div class="media-left">
+		<a href="#">
+			<img class="media-object" src="{{imageURL}}" style="width:110px; height:110px;">
+		</a>
+	</div>
+	<div class="media-body">
+		<h4 class="media-heading">{{name}}</h4>
+		<audio controls>
+			<source src="{{preview}}" type="audio/ogg">
+			<source src="horse.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+
+	</div>
+</div>
+{{/each}}

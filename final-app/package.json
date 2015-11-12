@@ -1,0 +1,10 @@
+{
+  "name": "Soundzy",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "~4.8.8",
+    "express-handlebars": "^2.0.1",
+    "handlebars": "^4.0.4",
+    "request": "^2.65.0"
+  }
+}

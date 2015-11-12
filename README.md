@@ -22,9 +22,6 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 ## Onto the App
 
-We're going to analyze and discuss each element of our app to understand how it all works together. Then we'll start building on top of it together.
-
-
 #### Da Server
 
 This is the backbone of the app and is unsurprisingly written in the file server.js. What's the job of a server? A server's job is to always be listening for "requests". Once the server receives a request, its job is to then send a "response" that includes the data that was requested. Your web browsers (Chrome, Firefox, etc.) are usually the ones making these requests.
