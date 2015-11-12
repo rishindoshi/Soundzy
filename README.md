@@ -43,7 +43,8 @@ console.log("Server magic happens at localhost:8888");
 var app = require('express')();
 
 app.get('/', function(req, res){
-	res.send('')
+	console.log('REQUEST RECEIVED');
+	res.send('WHADDUP Y'ALL');
 });
 
 app.listen(8888);
@@ -52,8 +53,18 @@ console.log("Server magic happens at localhost:8888");
 
 We're using the `app.get()` function that Express provides for us. It takes in two paramters:
 
-1. The path that specifies which webpage we want. `/` means home page
+1. The path that specifies which webpage we want. "/"" means home page
 2. A function (functions are variables in JS unlike C++) that is going to be run when a request is submitted to the above path
+
+So now when we start the server and navigate to `localhost:8888`, our browser will submit the same request as it did before. But this time, we've set up a **route handler** that handles requests sent to the home page (denoted by "/") and sends a quick WHADDUP back to the browser. Our app is going to have two **routes**. One will be the homepage which will eventually prompt a user to input an artist name, and the other will be a tracks page, which will display the top ten tracks for the given artist name. Let's set up a tracks route.
+
+```javascript
+app.get('/tracks', function(req, res){
+	res.send('WHADDUP TRACKS');
+});
+```
+
+Pretty much the same code as the homepage route. This time, we specified a different path and sent back a different message. Start the server again and navigate to `localhost:8888/tracks` to test the code. The browser will again send a request to our sever, but a different **route handler** will be called this time to match the "/tracks" path.
 
 
 
