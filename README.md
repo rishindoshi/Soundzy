@@ -56,7 +56,7 @@ We're using the `app.get()` function that Express provides for us. It takes in t
 1. The path that specifies which webpage we want. "/" is like a default and means home page
 2. A function (functions are variables in JS unlike C++) that is going to be run when a request is submitted to the above path
 
-So now when we start the server and navigate to `localhost:8888`, our browser will submit the same request as it did before. But this time, we've set up a **route handler** that handles requests sent to the home page (denoted by "/") and sends a quick WHADDUP back to the browser. Our app is going to have two **routes**. One will be the homepage which will eventually prompt a user to input an artist name, and the other will be a tracks page, which will display the top ten tracks for the given artist name. Let's set up a tracks route.
+So now when we start the server and navigate to `localhost:8888`, our browser will submit the same request as it did before. But this time, we've set up a **route handler** that handles requests sent to the home page (denoted by "/") and sends a quick WHADDUP back to the browser. Our app is going to have two **routes**. One will be the homepage which will eventually prompt a user to input an artist name, and the other will be a tracks page, which will display the top ten tracks for the given artist name. For now, let's set up a tracks route that simply responds with a message. We'll get into the details later.
 
 ```javascript
 app.get('/tracks', function(req, res){
