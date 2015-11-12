@@ -35,9 +35,25 @@ app.listen(8888);
 console.log("Server magic happens at localhost:8888");
 ```
 
- What we've done with these three lines of code is simply have the server start listening for requests. Type ```$ node beginner_server.js``` into your command line to start the server and then navigate to ```localhost:8888``` from your browser to see what's happening. ```localhost``` is the domain that is used to test a server **locally**. This means that only you can submit requests to this server from your own computer. Now once you buy the domain www.soundzy.com, you can then have users from everywhere start accessing the app.
+ What we've done with these three lines of code is simply have the server start listening for requests. Type `$ node beginner_server.js` into your command line to start the server and then navigate to `localhost:8888` from your browser to see what's happening. `localhost` is the domain that is used to test a server **locally**. This means that only you can submit requests to this server from your own computer. Now once you buy the domain www.soundzy.com, you can then have users from everywhere start accessing the app.
 
- So as you can see, the page just says "Cannot GET". So what happened here? Typing ```localhost:8888``` into your browser caused your browser to submit a GET request to the node server, but so far we've only written the code to listen for requests. We never wrote any code to process requests and respond to them. 
+ So as you can see, the page just says "Cannot GET". So what happened here? Typing `localhost:8888` into your browser caused your browser to submit a GET request to the node server, but so far we've only written the code to listen for requests. We never wrote any code to process requests and respond to them.
+
+ ```javascript
+var app = require('express')();
+
+app.get('/', function(req, res){
+	res.send('')
+});
+
+app.listen(8888);
+console.log("Server magic happens at localhost:8888");
+```
+
+We're using the `app.get()` function that Express provides for us. It takes in two paramters:
+1. The path that specifies which webpage we want. `/` means home page
+2. A function (functions are variables in JS unlike C++) that is going to be run when a request is submitted to the above path
+
 
 
 
