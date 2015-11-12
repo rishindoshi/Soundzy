@@ -66,7 +66,17 @@ app.get('/tracks', function(req, res){
 
 Pretty much the same code as the homepage route. This time, we specified a different path and sent back a different message. Start the server again and navigate to `localhost:8888/tracks` to test the code. The browser will again send a request to our sever, but a different **route handler** will be called this time to match the "/tracks" path.
 
+#### Slightly more complex server
 
+// Your text here
+
+#### Getting data from Spotify API
+
+// Your text here
+
+#### Rendering Data on the front end
+
+// Your text here
 
 
 
