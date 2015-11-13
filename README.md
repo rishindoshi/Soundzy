@@ -98,6 +98,18 @@ Congrats! You now have a functioning web server that serves a static web page! A
 
 #### Rendering Data on the front end
 
+Now we have some really cool data from Spotify. It's up to us, how we display this data to our users. Earlier, we sent static HTML pages to the client, we need a way to put the data we got from Spotify into our HTML Document to be sent to the user. The way many applications do this is called **templating**.
+
+Templates look very similar to HTML but they include features such as logic operators, data rendering, and many more. Templates will allow us to write markup that looks like this.
+
+```handlebars
+<div>
+	{{title}}
+</div>
+```
+
+When the template is rendered, the server will look for the variable `title` and inject it into the HTML where our brackets show.
+
 Start by analyzing the soundzy app structure.
 How it all works together
 Brief HTML description
