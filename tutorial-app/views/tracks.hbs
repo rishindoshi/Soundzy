@@ -1,21 +1,18 @@
 {{!-- Change to have everything static first and then change to dynamic in workshop --}}
 
 <h2> {{name}} </h2>
-{{#each tracks}}
-<div class="media">
-	<div class="media-left">
-		<a href="#">
-			<img class="media-object" src="{{imageURL}}">
+
+<div>
+	<div>
+		<a>
+			<img src="{{imageURL}}">
 		</a>
 	</div>
-	<div class="media-body">
-		<h4 class="media-heading">{{name}}</h4>
+	<div>
+		<h4>{{name}}</h4>
 		<audio controls>
 			<source src="{{preview}}" type="audio/ogg">
-			<source src="horse.mp3" type="audio/mpeg">
-			Your browser does not support the audio element.
 		</audio>
 
 	</div>
 </div>
-{{/each}}
