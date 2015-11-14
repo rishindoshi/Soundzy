@@ -20,6 +20,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 2. Follow above instructions for Macs.
 
+## Useful Links for this Tutorial
+
 ## Onto the App
 
 #### The Beginner Node Server
