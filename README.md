@@ -63,7 +63,12 @@ app.get('/tracks', function(req, res){
 });
 ```
 
-Pretty much the same code as the homepage route. This time, we specified a different path and sent back a different message. Start the server again and navigate to `localhost:8888/tracks` to test the code. The browser will again send a request to our sever, but a different **route handler** will be called this time to match the "/tracks" path.
+Pretty much the same code as the homepage route. This time, we specified a different path and sent back a different message. Start the server again and navigate to `localhost:8888/tracks` to test the code. So here are the steps that happen in a little more detail:
+
+1. You type url into browser
+2. Your browser sends request to the server
+3. Express receives the request, parses the url, and matches it with the correct **route handler**
+4. Express then calls the correct function we passed into app.get()
 
 #### Sending Web Pages
 
