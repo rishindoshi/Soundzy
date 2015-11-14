@@ -65,9 +65,31 @@ app.get('/tracks', function(req, res){
 
 Pretty much the same code as the homepage route. This time, we specified a different path and sent back a different message. Start the server again and navigate to `localhost:8888/tracks` to test the code. The browser will again send a request to our sever, but a different **route handler** will be called this time to match the "/tracks" path.
 
-#### Slightly more complex server
+#### Sending Web Pages
 
-// Your text here
+Let's make some upgrades to our server. Previously we saw how the server in the client interact by sending messages back and forth. Now, instead of giving our visitors a message, lets present them with a full "web page". Now when we get a request, we will **serve** them our HTML web page.
+
+If you are familar with HTML this should look fairly simple to you. HTML is a markup language that is used to represent visual structures in web browsers. What does that mean? When a web browser sees an HTML file, it is able to turn it into the visual structure you see on facebook.com or any other website.
+
+Let's change our routes to serve our pre-made HTML files.
+
+```javascript
+var app = require('express')();
+app.get('/', function(req, res){
+	res.sendFile('example_home.html');
+});
+app.get('/tracks', function(req, res){
+	var artist = req.query.artist;
+	console.log(artist);
+	res.sendFile('example_tracks.html');
+});
+app.listen(8888);
+console.log("Server magic happens on port 8888");
+```
+
+Here we're using Express's `sendFile()` function which does exactly what is sounds like it does, sends the file.
+
+Congrats! You now have a functioning web server that serves a static web page! A good majority of the web behaves this way. While this works great for informational sites, we aren't able to interact with our users very well. Later, we'll find out how many modern websites serve dynamic HTML. First, we'll begin using popular APIs to access some of all the cool data that is free to use!
 
 #### Getting data from Spotify API
 
@@ -75,7 +97,24 @@ Pretty much the same code as the homepage route. This time, we specified a diffe
 
 #### Rendering Data on the front end
 
-// Your text here
+Now we have some really cool data from Spotify. It's up to us, how we display this data to our users. Earlier, we sent static HTML pages to the client, we need a way to put the data we got from Spotify into our HTML Document to be sent to the user. The way many applications do this is called **templating**.
+
+Templates look very similar to HTML but they include features such as logic operators, data rendering, and many more. Templates will allow us to write markup that looks like this.
+
+```handlebars
+<div>
+	{{title}}
+</div>
+```
+
+When the template is rendered, the server will look for the variable `title` and inject it into the HTML where our brackets show.
+
+Start by analyzing the soundzy app structure.
+How it all works together
+Brief HTML description
+Understanding Templating (Displaying Data)
+Rendering Data in our Templates
+Finishing Up our App
 
 
 
