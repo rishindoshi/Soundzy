@@ -57,13 +57,13 @@ app.get('/artist', function(req, res){
 	     	//iterate through Spotify data and extract what fields we want
 	     	//In this case, we're interestd in the name of the track, a link to the
 	     	//30 second preview, and a link to the image of its album cover
-	     	tracks.forEach(function(track){
+	     	for(var i=0; i<tracks.length; ++i){
 	     		popular_tracks.push({
-	     			name: track.name,
-	     			preview: track.preview_url,
-	     			imageURL: track.album.images[0].url
+	     			name: tracks[i].name,
+	     			preview: tracks[i].preview_url,
+	     			imageURL: tracks[i].album.images[0].url
 	     		});
-	     	});
+	     	}
 
 	     	//Return a new HTML page to display to the other and also give the above data we extraced
 			res.render('tracks', {name: search_artist_name, tracks: popular_tracks});
