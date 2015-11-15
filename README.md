@@ -131,7 +131,22 @@ We first want to search for an artist. Lo and behold, Spotify has a route that a
 https://api.spotify.com/v1/search?q=kanye&type=artist
 ```
 
-Notice the `?` character used to denote the query parameters and the `&` character used to separate different query parameters.
+Notice the `?` character used to denote the query parameters and the `&` character used to separate different query parameters. Alright, now lets write the Node code ;) to make this request. 
+
+```javascript
+app.get('/tracks', function(req, res){
+	var artist = req.query.artist_name;
+	var request_options = {
+		url: 'https://api.spotify.com/v1/search',
+		qs: {q: artist, type: 'artist'},
+	};
+
+	request(request_options, function(error, response){
+		console.log(response);
+		res.sendFile(__dirname + '/views/example_tracks.html');
+	});
+});
+```
 
 #### Rendering Data on the front end
 
