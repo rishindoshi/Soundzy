@@ -7,7 +7,7 @@ We first need to download and install Node.js and NPM (Node package manager). He
 $ node -v
 $ npm -v
 ```
-Next, we need to pull down the code provided in this GitHub repository. To do so, open a terminal and navigate to a folder where you will store our project files. Enter the following command:  
+Next, we need to pull down the code provided in this GitHub repository. To do so, open a terminal and navigate to a folder where you will store our project files. Enter the following command:
 ```bash
 $ git clone https://github.com/rishindoshi/Soundzy.git
 ```
@@ -107,7 +107,7 @@ So, on our homepage, there will be an HTML input box where a user will type in a
 </form>
 ```
 
-Here we have an **input** element and a **button** element, and the `action="/tracks"` line tells the browser to submit a request to our `/tracks` route when the user presses the submit button. So let's put this HTML in the `example_home.html` file and run our server. Navigate to the homepage, type in any artist name, and press the submit button. I typed in "kanye", and then I got redirected to this url: `http://localhost:8888/tracks?artist_name=kanye`. 
+Here we have an **input** element and a **button** element, and the `action="/tracks"` line tells the browser to submit a request to our `/tracks` route when the user presses the submit button. So let's put this HTML in the `example_home.html` file and run our server. Navigate to the homepage, type in any artist name, and press the submit button. I typed in "kanye", and then I got redirected to this url: `http://localhost:8888/tracks?artist_name=kanye`.
 
 The `?` in a URL is used to denote a **query parameter**. Query parameters are tacked onto the URL by your browser, and are extracted by the server and treated as user input. So how can we get the `artist_name` variable on the server? It takes one line of code :).
 
@@ -119,7 +119,7 @@ app.get('/tracks', function(req, res){
 });
 ```
 
-The `req.query.artist_name` extracts the `artist_name` query parameter from the URL. Try running the server and typing in an artist again and see if the name is printed on your console. HOORAH, now our server is taking user input! Now, we need to take the user supplied artist name, and use it to request data from Spotify. 
+The `req.query.artist_name` extracts the `artist_name` query parameter from the URL. Try running the server and typing in an artist again and see if the name is printed on your console. HOORAH, now our server is taking user input! Now, we need to take the user supplied artist name, and use it to request data from Spotify.
 
 
 
@@ -141,12 +141,40 @@ Templates look very similar to HTML but they include features such as logic oper
 
 When the template is rendered, the server will look for the variable `title` and inject it into the HTML where our brackets show.
 
-Start by analyzing the soundzy app structure.
-How it all works together
-Brief HTML description
-Understanding Templating (Displaying Data)
-Rendering Data in our Templates
-Finishing Up our App
+Another great feature many templating engines have is repetition. If we have an array of elements (songs, images, users), we can write markup to iterate through our array and build the HTML to show our data.
+
+```handlebars
+{{#each user}}
+<div>
+	{{username}}
+</div>
+{{/each}}
+```
+
+We can also use logical if statements and put data anywhere we want (class names and attributes)
+
+```handlebars
+{{#if profilePicUrl}}
+<div>
+	<img src="{{profilePicUrl}}" alt="">
+</div>
+{{/if}}
+
+In order to use templates we have to change our server to **render** our template with the necessary data when we have it! Our data could contain headings for the page, user information, anything.
+
+```javascript
+app.get('/', function(req, res){
+	res.render('home', data);
+});
+```
+
+When our templating engine sees `res.render()` it will first look for the template specified then build an HTML web page given what we specify in our templates. Our templates are currently sitting in our views folder and have the file extension `.hbs`. Let's change the server to render our templates rather than send our HTML pages.
+
+```javascript
+app.get('/', function(req, res){
+	res.render('home', {message: 'SOUNDZAY'});
+});
+```
 
 
 
