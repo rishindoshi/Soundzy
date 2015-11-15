@@ -134,6 +134,9 @@ https://api.spotify.com/v1/search?q=kanye&type=artist
 Notice the `?` character used to denote the query parameters and the `&` character used to separate different query parameters. Alright, now lets write the Node code ;) to make this request.
 
 ```javascript
+//add this line at the top of your server file
+var request = require('request');
+
 app.get('/tracks', function(req, res){
 	var artist = req.query.artist_name;
 	var request_options = {
@@ -148,7 +151,7 @@ app.get('/tracks', function(req, res){
 });
 ```
 
-When 
+We construct a Javscript Object here that we will pass into `request`. The object contains the base URL and the query parameters (`qs` is short for query string). Just like in `app.get()`, we also pass a function into our request call. This input function will be called when the request module gets data back from Spotify. 
 
 #### Rendering Data on the front end
 
