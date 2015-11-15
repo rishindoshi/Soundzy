@@ -131,7 +131,7 @@ We first want to search for an artist. Lo and behold, Spotify has a route that a
 https://api.spotify.com/v1/search?q=kanye&type=artist
 ```
 
-Notice the `?` character used to denote the query parameters and the `&` character used to separate different query parameters. Alright, now lets write the Node code ;) to make this request. 
+Notice the `?` character used to denote the query parameters and the `&` character used to separate different query parameters. Alright, now lets write the Node code ;) to make this request.
 
 ```javascript
 app.get('/tracks', function(req, res){
@@ -197,27 +197,76 @@ When our templating engine sees `res.render()` it will first look for the templa
 app.get('/', function(req, res){
 	res.render('home', {message: 'SOUNDZAY'});
 });
+
+//When a user submits an artist
+app.get('/tracks', function(req, res){
+	//Here we're getting the artist name that the user submitted. We get it from parsing the url.
+	var search_artist_name = req.query.artist_name;
+
+	//These two objects hava data that we will send to Spotify in our request
+	//Spotify uses this request data to determine what data they want to send back to us
+	var artist_req_options = {
+		url: 'https://api.spotify.com/v1/search',
+		qs: {q: search_artist_name, type: 'artist'},
+		limit: 10,
+		method: 'GET'
+	};
+	var tracks_req_options = {
+		url: 'https://api.spotify.com/v1/artists/',
+		qs: {country: 'US'},
+		method: 'GET'
+	};
+
+	//Make our first request to spotify to get the unique ID for the artist that the user submitted
+	request(artist_req_options, function(error, response, body){
+		//Spotify gives us back the data in a format javascript can't understand.
+		//Javascript understands JSON, so we use the JSON.parse function to convert the data
+		var data = JSON.parse(body);
+
+		//UNCOMMENT ME: to see how the data returned by spotify is formatted
+		//console.log(data);
+
+		//We extract the unique artist id and append it to our url for the next request
+		var search_artist_id = data.artists.items[0].id;
+		tracks_req_options.url += (search_artist_id + '/top-tracks');
+
+		//Now that we have the unique artist id, we can request that Artist's top-tracks from Spotify
+		request(tracks_req_options, function(error, response, body){
+			var tracks = JSON.parse(body).tracks;
+	     	var popular_tracks = [];
+
+	     	//iterate through Spotify data and extract what fields we want
+	     	//In this case, we're interestd in the name of the track, a link to the
+	     	//30 second preview, and a link to the image of its album cover
+	     	for(var i=0; i<tracks.length; ++i){
+	     		popular_tracks.push({
+	     			name: tracks[i].name,
+	     			preview: tracks[i].preview_url,
+	     			imageURL: tracks[i].album.images[0].url
+	     		});
+	     	}
+
+	     	//Return a new HTML page to display to the other and also give the above data we extraced
+			res.render('tracks', {name: search_artist_name, tracks: popular_tracks});
+		});
+	});
+});
 ```
 
+Now check out the template to see how our data is rendered! You should see the data from Spotify rendered beautifully in your browser!
 
+#### Recap
 
+So there you have it! We just built a solid web app in a short amount of time. Hopefully you can use this readme as reference if you have any trouble or want to come back.
 
+### Moving Forward
 
+You now have a great foundation to make into your own web app! It's not very efficient to build apps from scratch. If you have an idea for a web app, you can mold our existing application into what you want.
 
+### Extras
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* Bootstrap - Front end library and style system to make your apps look real nice.
+* Grunt/Gulp - Task Runner (server automation).
+* Heroku/Digital Ocean - Host your app on the web so you can get off localhost and get online.
+* AngularJS/React - Front end frameworks to add more logic and control to your app.
+* Many more!
