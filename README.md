@@ -121,11 +121,32 @@ app.get('/tracks', function(req, res){
 
 The `req.query.artist_name` extracts the `artist_name` query parameter from the URL. Try running the server and typing in an artist again and see if the name is printed on your console. HOORAH, now our server is taking user input! Now, we need to take the user supplied artist name, and use it to request data from Spotify.
 
-
-
 #### Getting data from Spotify API
 
-// Your text here
+Node's request module will allow us to make requests to external servers. For this app, we will use the module to request publically accessible data from Spotify's servers. [Here](https://developer.spotify.com/web-api/endpoint-reference/) is where you can find Spotify's documentation on what data they make available and how to access that data.
+
+We first want to search for an artist. Lo and behold, Spotify has a route that allows us to do this. Spotify tells us to submit a request to the `https://api.spotify.com/v1/search` URL and requires two query parameters that they will use to process our request. We need to provide a `q` paramter which specifies what we want to search for (e.g kanye), and also a `type` parameter which specifies what we are searching for (an artist in our case). So we will construct a URL like such:
+
+```
+https://api.spotify.com/v1/search?q=kanye&type=artist
+```
+
+Notice the `?` character used to denote the query parameters and the `&` character used to separate different query parameters. Alright, now lets write the Node code ;) to make this request. 
+
+```javascript
+app.get('/tracks', function(req, res){
+	var artist = req.query.artist_name;
+	var request_options = {
+		url: 'https://api.spotify.com/v1/search',
+		qs: {q: artist, type: 'artist'},
+	};
+
+	request(request_options, function(error, response){
+		console.log(response);
+		res.sendFile(__dirname + '/views/example_tracks.html');
+	});
+});
+```
 
 #### Rendering Data on the front end
 
