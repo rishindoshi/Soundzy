@@ -98,7 +98,7 @@ Here we're using Express's `sendFile()` function which does exactly what is soun
 
 Congrats! You now have a functioning web server that serves a static web page! A good majority of the web behaves this way. While this works great for informational sites, we aren't able to interact with our users very well. The first step to making our application dynamic will be taking an `artist_name` as input from the user, so then we can generate content specific to that artist.
 
-So, on our homepage, there will be an HTML input box that a user will type in a desired artist name. Once the user types the artist name in and presses an HTML submit button, we want a request to be sent to our server, and we want our server to be able to extract the user supplied `artist_name` from this request.
+So, on our homepage, there will be an HTML input box where a user will type in a desired artist name. Once the user types the artist name in and presses an HTML submit button, we want a request to be sent to our server, and we want our server to be able to extract the user supplied `artist_name` from this request. Let's write some simple HTML to accomplish this.
 
 ```html
 <form action="/tracks">
@@ -106,6 +106,8 @@ So, on our homepage, there will be an HTML input box that a user will type in a 
 	<button type="submit">Go!</button>
 </form>
 ```
+
+Here we have an `input` element and a `button` element, and the `action="/tracks"` line tells the browser to submit a request to our `/tracks` route when the user presses the submit button. So let's put this HTML in the `example_home.html` file and run our server. Navigate to the homepage, type in any artist name, and press the submit button. So I typed in "kanye", and then I got redirected to this url: `http://localhost:8888/tracks?artist_name=kanye`. 
 
 #### Getting data from Spotify API
 
