@@ -107,7 +107,7 @@ So, on our homepage, there will be an HTML input box where a user will type in a
 </form>
 ```
 
-Here we have an `input` element and a `button` element, and the `action="/tracks"` line tells the browser to submit a request to our `/tracks` route when the user presses the submit button. So let's put this HTML in the `example_home.html` file and run our server. Navigate to the homepage, type in any artist name, and press the submit button. I typed in "kanye", and then I got redirected to this url: `http://localhost:8888/tracks?artist_name=kanye`. 
+Here we have an **input** element and a **button** element, and the `action="/tracks"` line tells the browser to submit a request to our `/tracks` route when the user presses the submit button. So let's put this HTML in the `example_home.html` file and run our server. Navigate to the homepage, type in any artist name, and press the submit button. I typed in "kanye", and then I got redirected to this url: `http://localhost:8888/tracks?artist_name=kanye`. 
 
 The `?` in a URL is used to denote a **query parameter**. Query parameters are tacked onto the URL by your browser, and are extracted by the server and treated as user input. So how can we get the `artist_name` variable on the server? It takes one line of code :).
 
@@ -119,7 +119,9 @@ app.get('/tracks', function(req, res){
 });
 ```
 
-The `req.query.artist_name` extracts the `artist_name` query parameter from the URL. Try running the server and typing in an artist again and see if the name is printed on your console.
+The `req.query.artist_name` extracts the `artist_name` query parameter from the URL. Try running the server and typing in an artist again and see if the name is printed on your console. HOORAH, now our server is taking user input! Now, we need to take the user supplied artist name, and use it to request data from Spotify. 
+
+
 
 #### Getting data from Spotify API
 
