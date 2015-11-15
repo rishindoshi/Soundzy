@@ -1,24 +1,21 @@
 # Soundzy
 
-## For Mac Users
+## Setup
 
-1. We'll first need to download Node.js and npm, which is Node's package manager.
-
-2. To get Node and npm, we'll run the command:
+We first need to download and install Node.js and NPM (Node package manager). Head to the [Node.js downloads page](https://nodejs.org/en/download/) and download and run the appropriate installer for your operating system (generally, Mac users should use the .pkg and Windows users should use the .msi). Check to make sure everything was installed correctly by opening a terminal and entering the following commands (if there is no output, you may need to troubleshoot what went wrong during installation).
 ```
-brew install node
+$ node -v
+$ npm -v
 ```
-
-3. What's Homebrew? Well they describe themselves as the "package manager that installs stuff that Apple didnt". To install Homebrew run:
+Next, we need to pull down the code provided in this GitHub repository. To do so, open a terminal and navigate to a folder where you will store our project files. Enter the following command:  
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ git clone https://github.com/rishindoshi/Soundzy.git
 ```
-
-## For Windows Users
-
-1. Get a Mac.
-
-2. Follow above instructions for Macs.
+Finally, navigate into the newly created folder and enter:
+```
+$ npm install
+```
+This will install all of the packages our project will depend on.
 
 ## Useful Links for this Tutorial
 
@@ -42,7 +39,7 @@ app.listen(8888);
 console.log("Server magic happens at localhost:8888");
 ```
 
- What we've done with these three lines of code is simply have our server start listening for requests. Type `$ node beginner_server.js` into your command line to start the server and then navigate to `localhost:8888` from your browser to see what's happening. `localhost` is the domain that is used to test a server **locally**. This means that only you can submit requests to this server from your own computer. Now if you were to buy the domain www.soundzy.com, you can then have users from everywhere start accessing the app.
+ What we've done with these three lines of code is simply have our server start listening for requests. Type `$ node beginner_server.js` into your command line to start the server and then navigate to `localhost:8888` from your browser to see what's happening. `localhost` is the domain that is unsed to test a server **locally**. This means that only you can submit requests to this server from your own computer. Now if you were to buy the domain www.soundzy.com, you can then have users from everywhere start accessing the app.
 
  So as you can see, the page just says "Cannot GET". So what happened here? Typing `localhost:8888` into your browser caused your browser to submit a GET request to the node server, but so far we've only written the code to listen for requests. We never wrote any code to process requests and respond to them.
 
