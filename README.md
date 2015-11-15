@@ -3,16 +3,16 @@
 ## Setup
 
 We first need to download and install Node.js and NPM (Node package manager). Head to the [Node.js downloads page](https://nodejs.org/en/download/) and download and run the appropriate installer for your operating system (generally, Mac users should use the .pkg and Windows users should use the .msi). Check to make sure everything was installed correctly by opening a terminal and entering the following commands (if there is no output, you may need to troubleshoot what went wrong during installation).
-```
+```bash
 $ node -v
 $ npm -v
 ```
 Next, we need to pull down the code provided in this GitHub repository. To do so, open a terminal and navigate to a folder where you will store our project files. Enter the following command:  
-```
+```bash
 $ git clone https://github.com/rishindoshi/Soundzy.git
 ```
 Finally, navigate into the newly created folder and enter:
-```
+```bash
 $ npm install
 ```
 This will install all of the packages our project will depend on.
@@ -107,7 +107,9 @@ So, on our homepage, there will be an HTML input box where a user will type in a
 </form>
 ```
 
-Here we have an `input` element and a `button` element, and the `action="/tracks"` line tells the browser to submit a request to our `/tracks` route when the user presses the submit button. So let's put this HTML in the `example_home.html` file and run our server. Navigate to the homepage, type in any artist name, and press the submit button. So I typed in "kanye", and then I got redirected to this url: `http://localhost:8888/tracks?artist_name=kanye`. 
+Here we have an `input` element and a `button` element, and the `action="/tracks"` line tells the browser to submit a request to our `/tracks` route when the user presses the submit button. So let's put this HTML in the `example_home.html` file and run our server. Navigate to the homepage, type in any artist name, and press the submit button. I typed in "kanye", and then I got redirected to this url: `http://localhost:8888/tracks?artist_name=kanye`. 
+
+
 
 #### Getting data from Spotify API
 
