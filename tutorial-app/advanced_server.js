@@ -6,7 +6,8 @@ app.get('/', function(req, res){
 });
 
 app.get('/tracks', function(req, res){
-	var artist = req.query.artist;
+	var artist = req.query.artist_name;
+	console.log(artist);
 	var request_options = {
 		url: 'https://api.spotify.com/v1/search',
 		qs: {q: artist, type: 'artist'},

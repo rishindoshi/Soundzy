@@ -96,7 +96,16 @@ console.log("Server magic happens on port 8888");
 
 Here we're using Express's `sendFile()` function which does exactly what is sounds like it does, sends the file.
 
-Congrats! You now have a functioning web server that serves a static web page! A good majority of the web behaves this way. While this works great for informational sites, we aren't able to interact with our users very well. Later, we'll find out how many modern websites serve dynamic HTML.
+Congrats! You now have a functioning web server that serves a static web page! A good majority of the web behaves this way. While this works great for informational sites, we aren't able to interact with our users very well. The first step to making our application dynamic will be taking an `artist_name` as input from the user, so then we can generate content specific to that artist.
+
+So, on our homepage, there will be an HTML input box that a user will type in a desired artist name. Once the user types the artist name in and presses an HTML submit button, we want a request to be sent to our server, and we want our server to be able to extract the user supplied `artist_name` from this request.
+
+```html
+<form action="/tracks">
+	<input name="artist_name">
+	<button type="submit">Go!</button>
+</form>
+```
 
 #### Getting data from Spotify API
 

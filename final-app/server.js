@@ -18,7 +18,7 @@ app.get('/', function(req, res){
 });
 
 //When a user submits an artist
-app.get('/artist', function(req, res){
+app.get('/tracks', function(req, res){
 	//Here we're getting the artist name that the user submitted. We get it from parsing the url.
 	var search_artist_name = req.query.artist_name;
 
