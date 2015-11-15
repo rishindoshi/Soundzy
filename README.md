@@ -22,6 +22,11 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 ## Useful Links for this Tutorial
 
+* https://developer.spotify.com/web-api/endpoint-reference/
+* http://webapplog.com/handlebars/
+* http://expressjs.com/starter/basic-routing.html
+* http://blog.modulus.io/node.js-tutorial-how-to-use-request-module
+
 ## Onto the App
 
 #### The Beginner Node Server
