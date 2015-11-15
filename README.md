@@ -109,7 +109,17 @@ So, on our homepage, there will be an HTML input box where a user will type in a
 
 Here we have an `input` element and a `button` element, and the `action="/tracks"` line tells the browser to submit a request to our `/tracks` route when the user presses the submit button. So let's put this HTML in the `example_home.html` file and run our server. Navigate to the homepage, type in any artist name, and press the submit button. I typed in "kanye", and then I got redirected to this url: `http://localhost:8888/tracks?artist_name=kanye`. 
 
+The `?` in a URL is used to denote a **query parameter**. Query parameters are tacked onto the URL by your browser, and are extracted by the server and treated as user input. So how can we get the `artist_name` variable on the server? It takes one line of code :).
 
+```javascript
+app.get('/tracks', function(req, res){
+	var artist = req.query.artist_name;
+	console.log(artist);
+	res.sendFile(__dirname + '/views/example_tracks.html');
+});
+```
+
+The `req.query.artist_name` extracts the `artist_name` query parameter from the URL. Try running the server and typing in an artist again and see if the name is printed on your console.
 
 #### Getting data from Spotify API
 
