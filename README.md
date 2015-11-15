@@ -142,11 +142,13 @@ app.get('/tracks', function(req, res){
 	};
 
 	request(request_options, function(error, response){
-		console.log(response);
+		console.log(response.body);
 		res.sendFile(__dirname + '/views/example_tracks.html');
 	});
 });
 ```
+
+When 
 
 #### Rendering Data on the front end
 
