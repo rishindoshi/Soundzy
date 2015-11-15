@@ -121,11 +121,11 @@ app.get('/tracks', function(req, res){
 
 The `req.query.artist_name` extracts the `artist_name` query parameter from the URL. Try running the server and typing in an artist again and see if the name is printed on your console. HOORAH, now our server is taking user input! Now, we need to take the user supplied artist name, and use it to request data from Spotify. 
 
-
-
 #### Getting data from Spotify API
 
-// Your text here
+Node's request module will allow us to make requests to external servers. For this app, we will use the module to request publically accessible data from Spotify's servers. [Here](https://developer.spotify.com/web-api/endpoint-reference/) is where you can find Spotify's documentation on what data they make available and how to access that data.
+
+
 
 #### Rendering Data on the front end
 
