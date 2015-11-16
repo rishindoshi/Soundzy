@@ -13,6 +13,7 @@ $ git clone https://github.com/rishindoshi/Soundzy.git
 ```
 Finally, navigate into the newly created folder and enter:
 ```bash
+$ cd tutorial-app
 $ npm install
 ```
 This will install all of the packages our project will depend on.
